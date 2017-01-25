@@ -1,7 +1,7 @@
 class RobotsController < ApplicationController
 
   def index
-    @robots = Robots.all
+    # @robots = Robot.all
   end
 
 end
