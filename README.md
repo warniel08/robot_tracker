@@ -1,6 +1,6 @@
 #PSKLRMRFI
 
 ##Team
- -Jeff Kranking
- -Jake Kelly
- -Warner Nielsen
+ * Jake Kelly
+ * Jeff Kranking
+ * Warner Nielsen
