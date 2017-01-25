@@ -1,5 +1,5 @@
 class ManufacturersController < ActionController::Base
   def index
-    @manufacturers = Manufacturer.all
+    # @manufacturers = Manufacturer.all
   end
 end
