@@ -8,8 +8,8 @@ RSpec.feature "Robots", type: :feature do
       visit robot_path(robot)
 
       within('.robo-deets') do
-        expect(page.html).to include("HAL")
-        expect(page.html).to include("Ordered")
+        expect(page.html).to have_content("HAL")
+        expect(page.html).to have_content("Ordered")
       end
     end
   end
