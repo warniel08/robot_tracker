@@ -1,8 +1,11 @@
 <div class="container mfg-index">
-  <h1>Manufacturers index</h1>
+  <h1>Manufacturers</h1>
+  <hr>
   <% @manufacturers.each do |manufacturer| %>
-    <ul style="list-style: none;">
-      <li><%= link_to manufacturer.name, manufacturer_path(manufacturer) %></li>
-    </ul>
+    <div class="col-md-4">
+      <ul style="list-style: none;">
+        <li><%= link_to manufacturer.name, manufacturer_path(manufacturer) %></li>
+      </ul>
+    </div>
   <% end %>
 </div>

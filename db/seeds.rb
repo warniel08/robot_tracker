@@ -1,3 +1,7 @@
+User.destroy_all
+Manufacturer.destroy_all
+Robot.destroy_all
+
 User.create(username: 'the Commissioner', email: 'commissioner@gmail.com', password: 'password')
 
 Manufacturer.create(name: "Wayne Enterprises")
