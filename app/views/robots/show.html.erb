@@ -1,7 +1,10 @@
-<div class="robo-top">
-  <h1>Robot</h1><p><%= link_to 'Edit', edit_robot_path %></p><p><%= link_to 'Delete', @robot, method: :delete %></p>
-</div>
- <ul class="robo-deets">
+
+<% if @robot != nil %>
+  <div class="robo-top">
+
+    <h1>Robot</h1><p><%= link_to 'Edit', edit_robot_path %></p><p><%= link_to 'Delete', @robot, method: :delete %></p>
+  </div>
+  <ul class="robo-deets">
     <!-- <li> -->
       <!-- @robot.manufacturer -->
     <!-- </li> -->
@@ -20,8 +23,11 @@
     <li>
       <%= @robot.inventory_status %>
     </li>
- </ul>
+  </ul>
 
- <% if @robot.inventory == false %>
- <%= link_to 'Move to Inventory', edit_robot_path %>
- <% end %>
+  <% if @robot.inventory == false %>
+    <%= link_to 'Move to Inventory', edit_robot_path %>
+  <% end %>
+<% else %>
+  <h1>The robot you seek does not exist within your current timeline.</h1>
+<% end %>
