@@ -1,9 +1,9 @@
 class PortalsController < ApplicationController
 
-  def open_portal
+  def open
   end
 
-  def closed_portal
+  def closed
   end
 
 end

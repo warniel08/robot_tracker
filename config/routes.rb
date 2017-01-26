@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root "portals#open_portal"
+  root "portals#open"
 
-  get '/open', to: 'portals#open_portal'
-  get '/close', to: 'portals#closed_portal'
+  get '/open', to: 'portals#open', as: 'open_portal'
+  get '/closed', to: 'portals#closed', as: 'closed_portal'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
