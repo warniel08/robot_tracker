@@ -2,16 +2,15 @@
 <div class="row">
   <div class="robot-tinker">
     <%= form_for @robot do |f| %>
-      <%= f.label :designation %>
-      <%= f.text_field :designation %>  <!-- This is dumb. dumb dumb dumb. -->
+      <%= label_tag(:designation, "Designation") %>
+      <%= text_field_tag(:designation, @robot.designation) %>
       <%= radio_button_tag(:inventory, "false") %>
-      <%= label_tag(:inventory_child, "This robot is being constructed") %>
+      <%= label_tag(:inventory_false, "This robot is being constructed") %>
       <%= radio_button_tag(:inventory, "true") %>
       <%= hidden_field_tag(:id, @robot.id) %>
-      <%= label_tag(:age_adult, "This robot is within my control") %>
-      <%= f.submit "Save changes", class: 'btn btn-primary' %>
+      <%= label_tag(:inventory_true, "This robot is within my control") %>
+      <%= submit_tag ("Save changes") %>
     <% end %>
   </div>
 </div>
 
-<!-- text_field_with_label f, :first_name -->

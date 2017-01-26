@@ -1,5 +1,7 @@
 <h1>Robot <strike>Army</strike> Peaceful Gathering</h1>
-<%= link_to "Place an Order", manufacturers_path, class:"btn btn-warning btn-lg"%>
+
+<div id="order-button"><%= link_to "Place an order", manufacturers_path, class: "btn btn-primary" %></div>
+
 <% @inventory_robots.each do |robot| %>
   <ul id="robo-roster" style="list-style: none;">
     <li>
