@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
+  resources :manufacturers, only: [:index, :show] do
+    resources :models, only: [:index]
+  end
+
   get '/robots', to: 'robots#index'
   get '/robots/:id', to: 'robots#show'
   resources :robots
