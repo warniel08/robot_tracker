@@ -2,30 +2,30 @@
 <% if @robot != nil %>
   <div class="robo-top">
 
-    <h1>Robot</h1><p><%= link_to 'Edit', edit_robot_path %></p><p><%= link_to 'Delete', @robot, method: :delete %></p>
+    <h2>Robot</h2><p><%= link_to 'Edit', edit_robot_path %></p><p><%= link_to 'Delete', @robot, method: :delete %></p>
   </div>
   <ul class="robo-deets">
-    <!-- <li> -->
-      <!-- @robot.manufacturer -->
-    <!-- </li> -->
-    <!-- <li> -->
-       <!-- @robot.model.height  -->
-    <!-- </li> -->
-    <!-- <li> -->
-       <!-- @robot.model.weight  -->
-    <!-- </li> -->
     <li>
-       <%=@robot.designation %>
+      <strong>Designation:</strong> <%=@robot.designation %>
     </li>
-    <!-- <li> -->
-       <!-- @robot.model.model_no  -->
-    <!-- </li> -->
     <li>
-      <%= @robot.inventory_status %>
+      <strong>Current status:</strong> <%= @robot.inventory_status %>
+    </li>
+    <li>
+      <strong>Model_no.:</strong> <%= @robot.model.model_designation %>
+    </li>
+    <li>
+      <strong>Height:</strong> <%= @robot.model.height %> yards
+    </li>
+    <li>
+      <strong>Weight:</strong> <%= @robot.model.weight %> tons
+    </li>
+    <li>
+      <strong>Manufactured by:</strong> <%= @robot.model.manufacturer.name %>
     </li>
   </ul>
 
-  <% if @robot.inventory == false %>
+  <% if @robot.inventory_status == "Ordered" %>
     <%= link_to 'Move to Inventory', edit_robot_path %>
   <% end %>
 <% else %>
