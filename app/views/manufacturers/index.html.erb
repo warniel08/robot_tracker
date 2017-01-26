@@ -1,1 +1,8 @@
-<h1>Manufacturers index</h1>
+<div class="container mfg-index">
+  <h1>Manufacturers index</h1>
+  <% @manufacturers.each do |manufacturer| %>
+    <ul style="list-style: none;">
+      <li><%= link_to manufacturer.name, manufacturer_path(manufacturer) %></li>
+    </ul>
+  <% end %>
+</div>
