@@ -4,7 +4,7 @@
 
   <div class=portal-button>
   <h4>Are you a blackbelt super mutant?</h4>
-    <a href="/closed" class="btn btn-primary" role="button">Yes</a>
-    <a href="/login" class="btn btn-primary" role="button">No</a>
+    <%= link_to "Yes", closed_portal_url, class: "btn btn-primary" %>
+    <%= link_to "No", login_path, class: "btn btn-primary" %>
   </div>
 </div>
