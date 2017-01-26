@@ -1,18 +1,22 @@
 <div class="container">
 
-<h1><%= @manufacturer.name %></h1>
+  <h1><%= @manufacturer.name %></h1>
 
-<hr>
+  <hr>
+  <h3>Click model to order</h3>
 
-<h4>List of Models:</h4>
-<% @manufacturer.models.each do |model| %>
-  <div class="col-md-4">
-    <ul class="list-group" style="list-style: none;">
-      <li><strong>Model Name:</strong> <%= model.model_designation %></li>
-      <li><strong>Height:</strong> <%= model.height %> yards</li>
-      <li><strong>Weight:</strong> <%= model.weight %> tons</li>
-    </ul>
+  <h4>List of Models:</h4>
+  <div class="list-group">
+    <% @manufacturer.models.each do |model| %>
+      <div class="col-md-4 model-list">
+         <%= link_to model_robots_path(model) do %>
+           <ul class="list-group-item" style="list-style: none;">
+             <li><strong>Model Name:</strong> <%= model.model_designation %></li>
+             <li><strong>Height:</strong> <%= model.height %> yards</li>
+             <li><strong>Weight:</strong> <%= model.weight %> tons</li>
+           </ul>
+         <% end %>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
 </div>
