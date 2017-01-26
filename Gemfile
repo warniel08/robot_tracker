@@ -41,6 +41,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
+  gem 'rack', '~> 2.0.1'
 end
 
 group :development do
