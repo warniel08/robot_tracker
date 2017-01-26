@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   get '/robots', to: 'robots#index'
+  get '/robots/:id', to: 'robots#show'
 end
