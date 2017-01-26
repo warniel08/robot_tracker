@@ -1,3 +1,18 @@
-<h1>Manufacturer show page</h1>
+<div class="container">
 
-<h3>Manufacturer: <%= @manufacturer.id %></h3>
+<h1><%= @manufacturer.name %></h1>
+
+<hr>
+
+<h4>List of Models:</h4>
+<% @manufacturer.models.each do |model| %>
+  <div class="col-md-4">
+    <ul class="list-group" style="list-style: none;">
+      <li><strong>Model Name:</strong> <%= model.model_designation %></li>
+      <li><strong>Height:</strong> <%= model.height %> yards</li>
+      <li><strong>Weight:</strong> <%= model.weight %> tons</li>
+    </ul>
+  </div>
+<% end %>
+
+</div>

@@ -1,6 +1,5 @@
 class Robot < ApplicationRecord
-  # belongs_to :model
-  # belongs_to :manufacturer, through: :model
+  belongs_to :model
 
   validates :designation, presence: true
   validates :inventory, inclusion: { in: [true, false]}
