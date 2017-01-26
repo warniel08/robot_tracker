@@ -1,27 +1,27 @@
-<div class="Robo-top">
-  <h1>Robot</h1><p><%= link_to 'Edit', edit_path %></p><p><%= link_to 'Delete', delete_path, method: :delete %></p>
+<div class="robo-top">
+  <h1>Robot</h1><p><%= link_to 'Edit', edit_robot_path %></p><p><%= link_to 'Delete', @robot, method: :delete %></p>
 </div>
- <ul class="Robo-deets">
+ <ul class="robo-deets">
+    <!-- <li> -->
+      <!-- @robot.manufacturer -->
+    <!-- </li> -->
+    <!-- <li> -->
+       <!-- @robot.model.height  -->
+    <!-- </li> -->
+    <!-- <li> -->
+       <!-- @robot.model.weight  -->
+    <!-- </li> -->
     <li>
-      <%= @robot.manufacturer %>
+       <%=@robot.designation %>
     </li>
-    <li>
-      <%= @robot.height %>
-    </li>
-    <li>
-      <%= @robot.weight %>
-    </li>
-    <li>
-      <%= @robot.designation %>
-    </li>
-    <li>
-      <%= @robot.model_no %>
-    </li>
+    <!-- <li> -->
+       <!-- @robot.model.model_no  -->
+    <!-- </li> -->
     <li>
       <%= @robot.inventory_status %>
     </li>
  </ul>
 
- <% if robot.inventory == false %>
- <%= link_to 'Move to Inventory', edit_path %>
+ <% if @robot.inventory == false %>
+ <%= link_to 'Move to Inventory', edit_robot_path %>
  <% end %>

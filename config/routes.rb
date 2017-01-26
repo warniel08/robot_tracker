@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   get '/robots', to: 'robots#index'
   get '/robots/:id', to: 'robots#show'
+  resources :robots
 end
