@@ -17,7 +17,7 @@ include SessionHelper
 
   def destroy
     session_logout
-    redirect_to robots_path
+    redirect_to root_path
   end
 
 end
