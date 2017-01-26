@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe RobotsController, type: :controller do
-  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: 1)}
+  let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
+  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
+  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id)}
 
   describe "GET #index" do
     before(:each) { get(:index) }
@@ -35,4 +37,3 @@ RSpec.describe RobotsController, type: :controller do
     end
   end
 end
-

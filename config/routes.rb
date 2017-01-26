@@ -8,9 +8,11 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :manufacturers, only: [:index, :show] do
-    resources :models, only: [:index]
+  resources :manufacturers, only: [:index, :show], shallow: true do
+    resources :models, only: [:index], shallow: true do
+      resources :robots, only: [:create]
+    end
   end
 
-  resources :robots
+  resources :robots, except: [:create, :new]
 end
