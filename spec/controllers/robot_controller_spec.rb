@@ -9,8 +9,8 @@ RSpec.describe RobotsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it "assigns all robots as @robots" do
-      expect(assigns(:robots)).to include(robot)
+    it "assigns new robots as @ordered_robots" do
+      expect(assigns(:ordered_robots)).to include(robot)
     end
 
     it "renders the :index template" do
@@ -20,17 +20,17 @@ RSpec.describe RobotsController, type: :controller do
 
   describe "GET #show" do
     it "responds with status code 200" do
-      get :show, { id: robot.id }
+      get :show, params: { id: robot.id }
       expect(response).to have_http_status 200
     end
 
     it "assigns the correct robot as @robot" do
-      get :show, { id: robot.id }
+      get :show, params: { id: robot.id }
       expect(assigns(:robot)).to eq(robot)
     end
 
     it "renders the :show template" do
-      get :show, { id: robot.id }
+      get :show, params: { id: robot.id }
       expect(response).to render_template(:show)
     end
   end
