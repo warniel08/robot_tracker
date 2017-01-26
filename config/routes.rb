@@ -12,7 +12,5 @@ Rails.application.routes.draw do
     resources :models, only: [:index]
   end
 
-  get '/robots', to: 'robots#index'
-  get '/robots/:id', to: 'robots#show'
   resources :robots
 end
