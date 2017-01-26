@@ -9,6 +9,7 @@ RSpec.feature "Robots", type: :feature do
 
       within('.robo-deets') do
         expect(page.html).to include("HAL")
+        expect(page.html).to include("Ordered")
       end
     end
   end
