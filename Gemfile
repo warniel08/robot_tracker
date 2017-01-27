@@ -42,6 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
   gem 'rack', '~> 2.0.1'
+  gem "rack_session_access"
 end
 
 group :development do
