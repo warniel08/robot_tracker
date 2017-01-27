@@ -1,11 +1,8 @@
 <div class="container">
 
-  <h1><%= @manufacturer.name %></h1>
+  <h3 class="page-title"><%= @manufacturer.name %></h3>
+  <h5>Click model to order:</h5>
 
-  <hr>
-  <h3>Click model to order</h3>
-
-  <h4>List of Models:</h4>
   <div class="list-group">
     <% @manufacturer.models.each do |model| %>
       <div class="col-md-4 model-list">

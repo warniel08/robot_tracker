@@ -1,19 +1,26 @@
-<h1>Robot <strike>Army</strike> Peaceful Gathering</h1>
+<div class="container">
+  <div class="well">
+    <h2 class="page-title">Robot <strike>Army</strike> Peaceful Gathering</h2>
+    <div> <%= link_to "Place Order", manufacturers_path, class: "btn btn-primary" %> </div>
+  </div>
 
-<div id="order-button"><%= link_to "Place an order", manufacturers_path, class: "btn btn-primary" %></div>
-<h4>Inventory:</h4>
-<% @inventory_robots.each do |robot| %>
-  <ul id="robo-roster" style="list-style: none;">
-    <li>
-      <%= link_to "#{robot.designation}", robot_path(robot)  %>
-    </li>
-  </ul>
-  <% end %>
-<h4>Ordered Robots:</h4>
-<% @ordered_robots.each do |robot| %>
-  <ul id="robo-roster" style="list-style: none;">
-    <li>
-      <%= link_to "#{robot.designation}", robot_path(robot)  %>
-    </li>
-  </ul>
-  <% end %>
+  <div class="container well">
+    <h4>Inventory:</h4>
+    <% @inventory_robots.each do |robot| %>
+      <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
+        <li><%= link_to "#{robot.designation}", robot_path(robot) %></li>
+        <li>model: <%= robot.model.model_designation %></li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="container well">
+    <h4>Ordered Robots:</h4>
+    <% @ordered_robots.each do |robot| %>
+      <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
+        <li><%= link_to "#{robot.designation}", robot_path(robot)  %></li>
+        <li>model: <%= robot.model.model_designation %></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

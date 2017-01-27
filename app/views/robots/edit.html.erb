@@ -1,18 +1,20 @@
-<h4>Update Robot </h4>
-<div class="row">
-  <div class="robot-tinker">
-    <%= form_for @robot do |f| %>
-      <%= label_tag(:designation, "Enter designation") %>
-      <%= text_field_tag(:designation, @robot.designation) %>
-      <%= hidden_field_tag(:id, @robot.id) %>
-      <% if @robot.inventory == true %>
-        <%= hidden_field_tag(:inventory, "true") %>
+<div class="container">
+  <h3 class="page-title">Update Robot </h3>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_for @robot do |f| %>
+        <%= f.label "Enter designation" %>
+        <%= f.text_field :designation, class: "form-control" %>
+
+        <% if @robot.inventory == false %>
+          <%= f.label "I have taken command of this robot." %>
+          <%= f.radio_button :inventory, true, class: "form-check-input"  %><br>
+        
+        <% end %>
+
+        <%= f.submit "Save changes", class: "btn btn-primary edit-btn"  %>
       <% end %>
-      <% if @robot.inventory == false %>
-        <%= radio_button_tag(:inventory, "true") %>
-        <%= label_tag(:inventory_true, "I have taken command of this robot.") %>
-      <% end %>
-      <%= submit_tag ("Save changes") %>
-    <% end %>
+    </div>
   </div>
 </div>
