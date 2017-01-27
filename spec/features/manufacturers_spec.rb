@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-feature "visiting the manufacturer's index page" do
+RSpec.feature "Manufacturer", type: :feature do
+  manufacturer = FactoryGirl.create(:manufacturer)
+
   scenario "the user sees a list of manufacturers and can view them" do
-    manufacturer = FactoryGirl.create(:manufacturer)
 
     visit manufacturers_path
 

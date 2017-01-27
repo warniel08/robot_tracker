@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: 1)}
-  let!(:user) {User.create!(username: 'the Commissioner', email: 'commissioner@gmail.com', password: 'password')}
+  let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
+  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
+  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id)}
+
+  before :each do
+    user = create(:user)
+    session_login(user)
+  end
 
   describe 'GET "#new"' do
     it "responds with status code 200" do

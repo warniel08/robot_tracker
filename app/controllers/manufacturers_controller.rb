@@ -3,11 +3,12 @@ class ManufacturersController < ApplicationController
   include SessionHelper
 
   def index
-    if !session_logged_in?
-      redirect_to root_path
-    else
+    # if !session_logged_in?
+    #   redirect_to root_path
+    # else
       @manufacturers = Manufacturer.all
-    end
+      render :index
+    # end
   end
 
   def show
@@ -15,6 +16,7 @@ class ManufacturersController < ApplicationController
       redirect_to root_path
     else
       @manufacturer = Manufacturer.find(params[:id])
+      render :show
     end
   end
 end
