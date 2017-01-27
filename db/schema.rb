@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126195615) do
+ActiveRecord::Schema.define(version: 20170127013315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20170126195615) do
   end
 
   create_table "robots", force: :cascade do |t|
-    t.string   "designation"
-    t.boolean  "inventory"
+    t.string   "designation", default: "Unnamed"
+    t.boolean  "inventory",   default: false
     t.integer  "model_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|

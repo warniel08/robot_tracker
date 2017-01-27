@@ -23,6 +23,17 @@ class RobotsController < ApplicationController
     end
   end
 
+  def create
+    @robot = Robot.new(model_id: params[:model_id])
+    p params[:model_id]
+    p @robot
+    if @robot.save
+      redirect_to robot_path(@robot.id), notice: "New Robot Ordered"
+    else
+      redirect_to manufacturer_path(@robot.model.manufacturer), notice: "Robot Not Saved"
+    end
+  end
+
   def edit
     if !session_logged_in?
       redirect_to root_path
@@ -47,8 +58,8 @@ class RobotsController < ApplicationController
   end
 
   # private
-
+  #
   #   def bot_params
-  #     params.require(:robot).permit(:designation, :inventory, :model_id)
+  #     params.require(:robot).permit(:model_id)
   #   end
 end

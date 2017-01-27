@@ -38,9 +38,12 @@ body {
 
 .model-list a:hover {
   text-decoration: none;
-  color: cyan;
 }
 
 .list-group-item {
   color: black;
+}
+
+.list-group-item:hover {
+  background-color: #ebe7e1;
 }
