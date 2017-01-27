@@ -7,6 +7,7 @@ class ManufacturersController < ApplicationController
       redirect_to root_path
     else
       @manufacturers = Manufacturer.all
+      render :index
     end
   end
 
@@ -15,6 +16,7 @@ class ManufacturersController < ApplicationController
       redirect_to root_path
     else
       @manufacturer = Manufacturer.find(params[:id])
+      render :show
     end
   end
 end

@@ -5,10 +5,15 @@ RSpec.describe RobotsController, type: :controller do
   let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
   let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id)}
 
+  before :each do
+    user = create(:user)
+    session_login(user)
+  end
+
   describe "GET #index" do
     before(:each) { get(:index) }
     it "responds with status code 200" do
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status 200
     end
 
     it "assigns new robots as @ordered_robots" do
