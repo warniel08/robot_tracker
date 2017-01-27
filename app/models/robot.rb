@@ -6,6 +6,6 @@ class Robot < ApplicationRecord
 
   def inventory_status
     return "Ordered" if self.inventory == false
-    return "Under My Control"
+    return "Under my control"
   end
 end
