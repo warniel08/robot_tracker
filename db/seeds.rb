@@ -13,5 +13,3 @@ Model.generate_models_data
 16.times { Robot.create(designation: "Unnamed", model_id: Model.order("RANDOM()").first.id) }
 
 16.times { Robot.create(designation: Faker::Name.name, inventory: true, model_id: Model.order("RANDOM()").first.id) }
-
-
