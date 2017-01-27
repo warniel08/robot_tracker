@@ -21,5 +21,5 @@ Model.create(model_designation: "SI-111", height: 4.5, weight: 1.3, manufacturer
 Model.create(model_designation: "SI-112", height: 4.7, weight: 1.1, manufacturer_id: (Manufacturer.second.id))
 Model.create(model_designation: "SI-113", height: 4.1, weight: 1.4, manufacturer_id: (Manufacturer.second.id))
 
-5.times {Robot.create(designation: "HAL", inventory: false, model_id: Model.first.id)}
-5.times {Robot.create(designation: "Ava", inventory: true, model_id: Model.first.id)}
+30.times {Robot.create(designation: "HAL", inventory: false, model_id: Model.first.id)}
+30.times {Robot.create(designation: "Ava", inventory: true, model_id: Model.last.id)}
