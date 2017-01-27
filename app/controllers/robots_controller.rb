@@ -25,8 +25,6 @@ class RobotsController < ApplicationController
 
   def create
     @robot = Robot.new(model_id: params[:model_id])
-    p params[:model_id]
-    p @robot
     if @robot.save
       redirect_to robot_path(@robot.id), notice: "New Robot Ordered"
     else
@@ -44,7 +42,7 @@ class RobotsController < ApplicationController
 
   def update
     @robot = Robot.find(params[:id])
-    if @robot.update_attributes({inventory: params[:inventory], designation: params[:designation]})
+    if @robot.update_attributes(bot_params)
       redirect_to robot_path(@robot.id), :notice => "Your robot's status has been updated"
     else
       redirect_to edit_robot_path(@robot.id), :notice => "You cannot designate a robot until it is moved to your inventory."
@@ -57,9 +55,9 @@ class RobotsController < ApplicationController
     redirect_to robot_path(robot), :notice => "Robot has been destroyed"
   end
 
-  # private
-  #
-  #   def bot_params
-  #     params.require(:robot).permit(:model_id)
-  #   end
+  private
+  
+    def bot_params
+      params.require(:robot).permit(:inventory, :designation)
+    end
 end

@@ -2,6 +2,8 @@
   <div class="container">
     <% if session_logged_in? %>
       <ul class="nav navbar-nav navbar-right">
+        <li id=title><%= link_to "Inventory", robots_path %></li>
+        <li id=title><%= link_to "New Order", manufacturers_path %></li>
         <li> <%= link_to "Log out", logout_path, method: :delete %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">

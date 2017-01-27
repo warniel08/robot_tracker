@@ -11,6 +11,7 @@ User.create(username: 'the Commissioner', email: 'commissioner@gmail.com', passw
 
 Manufacturer.generate_manufacturer_names
 
+
 # Model.create(model_designation: "WE-111", height: 2.5, weight: 2.3, manufacturer_id: (Manufacturer.first.id))
 # Model.create(model_designation: "WE-112", height: 3.7, weight: 1.1, manufacturer_id: (Manufacturer.first.id))
 # Model.create(model_designation: "WE-113", height: 3.1, weight: 3.7, manufacturer_id: (Manufacturer.first.id))
