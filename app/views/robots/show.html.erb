@@ -1,41 +1,30 @@
-
-<% if @robot != nil %>
-  <div class="robo-top">
-
-    <h2>Robot</h2>
+<div class="container">
+  <ul class="list-inline">
+    <% if @robot != nil %>
+    <li><h3 class="page-title">Robot Specifications</h3></li>
     <% if @robot.inventory == true %>
-      <p><%= link_to 'Edit', edit_robot_path %></p>
-      <p><%= link_to 'Delete', @robot, method: :delete %></p>
+      <li><%= link_to 'Edit', edit_robot_path %></li>
+      <li><%= link_to 'Delete', @robot, method: :delete %></li>
     <% else %>
-      <p><%= link_to 'Cancel order', @robot, method: :delete %></p>
+      <li><%= link_to 'Cancel Order', @robot, method: :delete %></li>
     <% end %>
-  </div>
+  </ul>
+
   <ul class="robo-deets">
-    <li>
-      <strong>Designation:</strong> <%=@robot.designation %>
-    </li>
-    <li>
-      <strong>Current status:</strong> <%= @robot.inventory_status %>
-    </li>
-    <li>
-      <strong>Model_no.:</strong> <%= @robot.model.model_designation %>
-    </li>
-    <li>
-      <strong>Height:</strong> <%= @robot.model.height %> yards
-    </li>
-    <li>
-      <strong>Weight:</strong> <%= @robot.model.weight %> tons
-    </li>
-    <li>
-      <strong>Manufactured by:</strong> <%= @robot.model.manufacturer.name %>
-    </li>
+    <li>Designation: <%=@robot.designation %></li>
+    <li>Current status: <%= @robot.inventory_status %></li>
+    <li>ModelNo: <%= @robot.model.model_designation %></li>
+    <li>Height: <%= @robot.model.height %> yards</li>
+    <li>Weight: <%= @robot.model.weight %> tons</li>
+    <li>Manufactured by: <%= @robot.model.manufacturer.name %></li>
   </ul>
 
   <% if @robot.inventory_status == "Ordered" %>
-    <%= link_to 'Move to Inventory', edit_robot_path %>
+    <h5 id="inventory"><%= link_to 'Move to Inventory', edit_robot_path %></h5>
+    <% end %>
+  <% else %>
+    <h3>The robot you seek does not exist within your current timeline.</h3>
   <% end %>
-<% else %>
-  <h1>The robot you seek does not exist within your current timeline.</h1>
-<% end %>
 
-<h4 id=title><%= link_to "View Inventory", robots_path %></h4>
+  <h4 id=inventory-link><%= link_to "Back to Inventory", robots_path %></h4>
+</div>
