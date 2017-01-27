@@ -1,20 +1,34 @@
 class RobotsController < ApplicationController
 
+  include SessionHelper
+
   def index
-    @inventory_robots = Robot.where("inventory = true").order("created_at DESC")
-    @ordered_robots = Robot.where("inventory = false").order("created_at DESC")
+    if !session_logged_in?
+      redirect_to root_path
+    else
+      @inventory_robots = Robot.where("inventory = true").order("created_at DESC")
+      @ordered_robots = Robot.where("inventory = false").order("created_at DESC")
+    end
   end
 
   def show
-    if Robot.exists?(params[:id])
-      @robot = Robot.find(params[:id])
+    if !session_logged_in?
+      redirect_to root_path
     else
-      @robot = nil
+      if Robot.exists?(params[:id])
+        @robot = Robot.find(params[:id])
+      else
+        @robot = nil
+      end
     end
   end
 
   def edit
-    @robot = Robot.find(params[:id])
+    if !session_logged_in?
+      redirect_to root_path
+    else
+      @robot = Robot.find(params[:id])
+    end
   end
 
   def update
