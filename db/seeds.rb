@@ -7,4 +7,3 @@ User.create(username: 'the Commissioner', email: 'commissioner@gmail.com', passw
 
 Manufacturer.generate_manufacturer_names
 Model.generate_models_data
-
