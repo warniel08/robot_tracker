@@ -43,15 +43,11 @@ class RobotsController < ApplicationController
   end
 
   def update
-    if !session_logged_in?
-      redirect_to root_path
+    @robot = Robot.find(params[:id])
+    if @robot.update_attributes({inventory: params[:inventory], designation: params[:designation]})
+      redirect_to robot_path(@robot.id), :notice => "Your robot's status has been updated"
     else
-      @robot = Robot.find(params[:id])
-      if @robot.update_attributes({inventory: params[:inventory], designation: params[:designation]})
-        redirect_to robot_path(@robot.id), :destroyed => "Your robot's status has been updated"
-      else
-        render "edit"
-      end
+      redirect_to edit_robot_path(@robot.id), :notice => "You cannot designate a robot until it is moved to your inventory."
     end
   end
 
