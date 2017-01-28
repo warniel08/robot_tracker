@@ -1,7 +1,7 @@
 class CreatePayments < ActiveRecord::Migration[5.0]
   def change
     create_table :payments do |t|
-      t.string :id
+      t.string :payment_id
       t.float :amount
       t.string :customer
       t.string :currency

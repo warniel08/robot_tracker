@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20170128215926) do
     t.string   "price"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string   "payment_id"
+    t.float    "amount"
+    t.string   "customer"
+    t.string   "currency"
+    t.string   "description"
+    t.boolean  "paid"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "robots", force: :cascade do |t|
     t.string   "designation", default: "Unnamed"
     t.boolean  "inventory",   default: false

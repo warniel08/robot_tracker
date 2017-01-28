@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   resources :robots, except: [:create, :new]
 
   resources :purchases, only: [:index, :show]
+  resources :payments, only: [:create, :new]
 
 end
