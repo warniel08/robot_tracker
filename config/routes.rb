@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   resources :users, except: :index
 
   resources :robots, except: [:create, :new]
+
+  resources :purchases, only: [:index, :show]
+
 end
