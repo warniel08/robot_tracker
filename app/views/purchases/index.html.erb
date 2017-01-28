@@ -6,7 +6,7 @@
   <div class="list-group">
     <% @robots.each do |robot| %>
       <div class="col-md-6 model-list">
-        <%= link_to purchase_path(robot) do %>
+        <%= link_to product_path(robot) do %>
           <ul class="list-group-item" style="list-style: none;">
             <li><strong>Designation: </strong><%= robot.designation %></li>
             <li><strong>Model: </strong><%= robot.model.model_designation %></li>
