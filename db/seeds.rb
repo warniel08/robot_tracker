@@ -23,3 +23,5 @@ Model.generate_models_data
 # 38520000023237  Diners Club
 # 3530111333300000  JCB
 # 3566002020360505  JCB
+
+
