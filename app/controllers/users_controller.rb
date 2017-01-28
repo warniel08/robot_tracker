@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include SessionHelper
 
   def show
     @user = User.find(params[:id])
@@ -12,8 +13,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session_login
-      redirect_to users_path, :notice => "New User was saved"
+      session_login @user
+      redirect_to user_path(@user), :notice => "New User was saved"
     else
       render "new"
     end
@@ -26,25 +27,24 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user.id), :notice => "User has been updated"
+      redirect_to user_path(@user), :notice => "User has been updated"
     else
       render "edit"
     end
   end
 
   def destroy
-
+    session_logout
     user = User.find(params[:id])
-    Post.delete_all(user_id: user.id)
     user.destroy
-    redirect_to root_path
+    redirect_to login_path, :alert => "User has been deleted"
   end
 
 
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:username, :email, :password)
     end
 
 end

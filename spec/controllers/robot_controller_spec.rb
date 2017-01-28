@@ -6,16 +6,12 @@ RSpec.describe RobotsController, type: :controller do
   before :each do
     user = create(:user)
     session_login(user)
-    manufacturer = Manufacturer.create(name: "LKDVDLnjldksjldskj")
-    model = Model.create(model_designation: "RX113", manufacturer_id: manufacturer.id)
-    robot = Robot.create(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )
   end
 
-  # let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
-  # let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
-  # let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
-
-
+  let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password')}
+  let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
+  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
+  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
 
   describe "GET #index" do
     before(:each) { get(:index) }

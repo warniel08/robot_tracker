@@ -28,7 +28,7 @@ class RobotsController < ApplicationController
     if @robot.save
       redirect_to robot_path(@robot.id), notice: "New Robot Ordered"
     else
-      redirect_to manufacturer_path(@robot.model.manufacturer), notice: "Robot Not Saved"
+      redirect_to manufacturer_path(@robot.model.manufacturer), alert: "Robot Not Saved"
     end
   end
 
@@ -45,18 +45,18 @@ class RobotsController < ApplicationController
     if @robot.update_attributes(bot_params)
       redirect_to robot_path(@robot.id), :notice => "Your robot's status has been updated"
     else
-      redirect_to edit_robot_path(@robot.id), :notice => "You cannot designate a robot until it is moved to your inventory."
+      redirect_to edit_robot_path(@robot.id), :alert => "You cannot designate a robot until it is moved to your inventory."
     end
   end
 
   def destroy
     robot = Robot.find(params[:id])
     Robot.destroy(robot)
-    redirect_to robot_path(robot), :notice => "Robot has been destroyed"
+    redirect_to robot_path(robot), :alert => "Robot has been destroyed"
   end
 
   private
-  
+
     def bot_params
       params.require(:robot).permit(:inventory, :designation)
     end

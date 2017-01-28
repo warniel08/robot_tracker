@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
   has_secure_password
-
   has_many :robots
 
   validates :password_digest, :email, { presence: true }
