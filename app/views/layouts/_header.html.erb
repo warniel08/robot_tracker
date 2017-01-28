@@ -7,7 +7,7 @@
           <li id=title><%= link_to "New Order", manufacturers_path %></li>
         <% end %>
         <li> <%= link_to "Profile", user_path(session_current_user) %> </li>
-        <li> <%= link_to "Log out", logout_path, method: :delete %> </li>
+        <li> <%= link_to "Log out", logout_path %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
       <% if session_current_user.admin %>
