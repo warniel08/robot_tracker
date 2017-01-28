@@ -1,11 +1,12 @@
 <div class="container">
   <h3>Robots For Sale</h3>
+  <hr>
   <h5>Click robot to purchase:</h5>
 
   <div class="list-group">
     <% @robots.each do |robot| %>
-      <div class="col-md-4 model-list">
-        <%= link_to purchase_path(robot) do %>
+      <div class="col-md-6 model-list">
+        <%= link_to product_path(robot) do %>
           <ul class="list-group-item" style="list-style: none;">
             <li><strong>Designation: </strong><%= robot.designation %></li>
             <li><strong>Model: </strong><%= robot.model.model_designation %></li>

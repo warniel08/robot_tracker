@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get '/logout',  to: 'sessions#destroy'
 
   resources :manufacturers, only: [:index, :show], shallow: true do
     resources :models, only: [:index], shallow: true do
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :robots, except: [:create, :new]
 
-  resources :purchases, only: [:index, :show]
+  get '/products', to: 'purchases#index'
+  get '/products/:id', to: 'purchases#show', as: 'product'
+  get '/products/:id/new', to: 'purchases#new', as: 'new_purchase'
+  post '/products/:id/', to: 'purchases#create'
 
 end
