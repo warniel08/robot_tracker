@@ -1,5 +1,6 @@
 class Robot < ApplicationRecord
   belongs_to :model
+  belongs_to :user
 
   validates :designation, presence: true
   validates :inventory, inclusion: { in: [true, false]}
