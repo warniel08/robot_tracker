@@ -3,6 +3,6 @@ def create
 end
 
 def new
-  @payment = {Payment.new}
+  @payment = Payment.new
 end
 end
