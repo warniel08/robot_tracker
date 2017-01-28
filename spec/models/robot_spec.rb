@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Robot, type: :model do
+  let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password')}
   let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
   let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
-  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id)}
+  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
 
   describe Robot do
     describe "validations" do

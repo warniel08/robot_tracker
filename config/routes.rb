@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :manufacturers, only: [:index, :show], shallow: true do
     resources :models, only: [:index], shallow: true do
-      resources :robots, only: [:create]
+      resources :robots, only: :create
     end
   end
 

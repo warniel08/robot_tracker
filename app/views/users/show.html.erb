@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="well">
+    <h3 class="page-title">Hello <%= @user.username %></h3>
+    <h5><%= link_to "Edit Profile", edit_user_path(@user) %></h5>
+    <h5><%= link_to "Delete Profile", @user, method: :delete, data: { confirm: "Are you sure you want to delete this user?" } %></h5>
+  </div>
+
+  <div><h3> PLACEHOLDER FOR NEW PURCHASE LINK </h3></div>
+
+  <div class="container well">
+    <h4>Buy History:</h4>
+    <% @user.robots.each do |robot| %>
+      <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
+        <li><%= link_to "#{robot.designation}", robot_path(robot) %></li>
+        <li>model: <%= robot.model.model_designation %></li>
+        <li>price: <%= robot.price %></li>
+      </ul>
+    <% end %>
+  </div>
+
+</div>
