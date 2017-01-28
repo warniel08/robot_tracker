@@ -10,7 +10,10 @@ User.create(username: 'the Commissioner', email: 'commissioner@gmail.com', passw
 Manufacturer.generate_manufacturer_names
 Model.generate_models_data
 
-16.times { Robot.create(designation: "Unnamed", model_id: Model.order("RANDOM()").first.id) }
+16.times { Robot.create(designation: "Unnamed", model_id: Model.order("RANDOM()").first.id, user_id: User.first.id) }
+
+16.times { Robot.create(designation: Faker::Name.name, inventory: true, model_id: Model.order("RANDOM()").first.id, user_id: User.first.id) }
+
 
 16.times { Robot.create(designation: Faker::Name.name, inventory: true, model_id: Model.order("RANDOM()").first.id) }
 
@@ -30,5 +33,4 @@ Model.generate_models_data
 # 38520000023237  Diners Club
 # 3530111333300000  JCB
 # 3566002020360505  JCB
-
 

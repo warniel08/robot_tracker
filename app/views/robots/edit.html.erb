@@ -8,9 +8,9 @@
         <%= f.text_field :designation, class: "form-control" %>
 
         <% if @robot.inventory == false %>
-          <%= f.label "I have taken command of this robot." %>
-          <%= f.radio_button :inventory, true, class: "form-check-input"  %><br>
-        
+        <%= f.radio_button :inventory, true, class: "form-check-input"  %>
+          <%= f.label "I have taken command of this robot." %><br>
+
         <% end %>
 
         <%= f.submit "Save changes", class: "btn btn-primary edit-btn"  %>

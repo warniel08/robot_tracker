@@ -17,6 +17,7 @@
     <li>Height: <%= @robot.model.height %> yards</li>
     <li>Weight: <%= @robot.model.weight %> tons</li>
     <li>Manufactured by: <%= @robot.model.manufacturer.name %></li>
+    <li>Price: <%= @robot.model.price %></li>
   </ul>
 
   <% if @robot.inventory_status == "Ordered" %>
