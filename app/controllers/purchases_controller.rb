@@ -15,10 +15,4 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def destroy
-    robot = Robot.find(params[:id])
-    Robot.destroy(robot)
-    redirect_to purchases_path(robot), :notice => "Order has been canceled"
-  end
-
 end

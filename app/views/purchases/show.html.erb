@@ -1,8 +1,8 @@
 <div class="container">
-  <h1>Purchase page</h1>
+  <h3>Make Your Purchase</h3>
   <ul class="list-inline">
     <% if @robot != nil %>
-    <li><h3 class="page-title">Robot Specifications</h3></li>
+    <li><h4 class="page-title">Robot Specifications</h4></li>
   </ul>
 
   <ul class="robo-deets" style="list-style: none;">
@@ -15,8 +15,7 @@
   </ul>
 
   <% end %>
-
+  <br>
   <%= link_to "BUY", purchases_path, class: "btn btn-success btn-lg btn-buy" %> <!--//***********this path needs to be redirected to a different page***********//-->
 
-  <h4 id=inventory-link><%= link_to "Back to my Orders", purchases_path %></h4> <!--//***********this path needs to be redirected to a different page***********//-->
 </div>
