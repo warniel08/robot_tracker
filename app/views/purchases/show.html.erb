@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Purchase page</h1>
+  <ul class="list-inline">
+    <% if @robot != nil %>
+    <li><h3 class="page-title">Robot Specifications</h3></li>
+  </ul>
+
+  <ul class="robo-deets" style="list-style: none;">
+    <li>Designation: <%=@robot.designation %></li>
+    <li>Manufactured by: <%= @robot.model.manufacturer.name %></li>
+    <li>ModelNo: <%= @robot.model.model_designation %></li>
+    <li>Height: <%= @robot.model.height %> yards</li>
+    <li>Weight: <%= @robot.model.weight %> tons</li>
+    <li>Price: <%= double_the_dollar(@robot.model.price) %></li>
+  </ul>
+
+  <% end %>
+
+  <%= link_to "BUY", purchases_path, class: "btn btn-success btn-lg btn-buy" %> <!--//***********this path needs to be redirected to a different page***********//-->
+
+  <h4 id=inventory-link><%= link_to "Back to my Orders", purchases_path %></h4> <!--//***********this path needs to be redirected to a different page***********//-->
+</div>
