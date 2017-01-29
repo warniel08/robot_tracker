@@ -16,15 +16,17 @@
 
   <div class="list-group">
     <% @robots.each do |robot| %>
-      <div class="col-md-6 model-list">
-        <%= link_to product_path(robot) do %>
-          <ul class="list-group-item" style="list-style: none;">
-            <li><strong>Designation: </strong><%= robot.designation %></li>
-            <li><strong>Model: </strong><%= robot.model.model_designation %></li>
-            <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
-          </ul>
-        <% end %>
-      </div>
+      <% if robot.user_id == User.first.id %>
+        <div class="col-md-6 model-list">
+          <%= link_to product_path(robot) do %>
+            <ul class="list-group-item" style="list-style: none;">
+              <li><strong>Designation: </strong><%= robot.designation %></li>
+              <li><strong>Model: </strong><%= robot.model.model_designation %></li>
+              <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
