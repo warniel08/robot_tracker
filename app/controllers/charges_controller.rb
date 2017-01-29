@@ -4,7 +4,7 @@ class ChargesController < ApplicationController
 
   def create
     @robot = Robot.find(params[:id])
-    @robot.update_attributes(user_id: session_current_user.id)
+    @robot.update_attributes(user_id: session_current_user.id, inventory: false)
 
     Stripe.api_key = ENV['TEST_SECRET_KEY']
 
