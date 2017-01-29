@@ -21,4 +21,8 @@ module SessionHelper
     session[:user_id] = user.id
   end
 
+  def admin?
+    return true if session_current_user.admin
+  end 
+
 end

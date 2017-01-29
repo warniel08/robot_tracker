@@ -1,21 +1,25 @@
 <div class="container">
   <div class="well">
     <h3 class="page-title">Hello <%= @user.username %></h3>
+    <h4 class="page-title"> <%= @user.email %></h4>
     <h5><%= link_to "Edit Profile", edit_user_path(@user) %></h5>
-    <h3><%= link_to "Robot Catalog", products_path, class: "btn btn-primary" %></h3>
-  </div>
-
-  <div class="container well">
-    <h4>Buy History:</h4>
-    <% @user.robots.each do |robot| %>
-      <%= link_to product_path(robot) do %>
-        <ul class="list-group-item" style="list-style: none;">
-          <li><strong>Designation: </strong><%= robot.designation %></li>
-          <li><strong>Model: </strong><%= robot.model.model_designation %></li>
-          <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
-        </ul>
-      <% end %>
+    <% if !admin? %>
+      <h3><%= link_to "Robot Catalog", products_path, class: "btn btn-primary" %></h3>
     <% end %>
   </div>
 
+  <% if !admin? %>
+    <div class="container well">
+      <h4>Buy History:</h4>
+      <% @user.robots.each do |robot| %>
+        <%= link_to product_path(robot) do %>
+          <ul class="list-group-item" style="list-style: none;">
+            <li><strong>Designation: </strong><%= robot.designation %></li>
+            <li><strong>Model: </strong><%= robot.model.model_designation %></li>
+            <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

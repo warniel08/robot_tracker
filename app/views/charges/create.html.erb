@@ -1,2 +1,2 @@
-<h2>Thanks, you paid <strong><%= double_the_dollar(@robot.model.price) %></strong>!</h2>
+<h2>Thank you for your purchase, <%=session_current_user.username%></h2>
 <h4> <%= link_to "Back to Profile", user_path(session_current_user) %> </h4>

@@ -29,7 +29,7 @@ class RobotsController < ApplicationController
     if @robot.save
       redirect_to robot_path(@robot.id), notice: "New Robot Ordered"
     else
-      redirect_to manufacturer_path(@robot.model.manufacturer), alert: "Robot Not Saved"
+      redirect_to manufacturers_path, alert: "Robot Not Saved"
     end
   end
 
