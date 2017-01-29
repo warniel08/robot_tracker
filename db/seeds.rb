@@ -15,9 +15,6 @@ Model.generate_models_data
 16.times { Robot.create(designation: Faker::Name.name, inventory: true, model_id: Model.order("RANDOM()").first.id, user_id: User.first.id) }
 
 
-16.times { Robot.create(designation: Faker::Name.name, inventory: true, model_id: Model.order("RANDOM()").first.id) }
-
-
 #### TEST CARDS ####
 # 242424242424242 Visa
 # 4012888888881881  Visa
