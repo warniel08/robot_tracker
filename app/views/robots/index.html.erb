@@ -7,20 +7,34 @@
   <div class="container well">
     <h4>Inventory:</h4>
     <% @inventory_robots.each do |robot| %>
-      <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
-        <li><%= link_to "#{robot.designation}", robot_path(robot) %></li>
-        <li>model: <%= robot.model.model_designation %></li>
-      </ul>
+      <% if robot.user_id == User.first.id %>
+        <div class="col-md-6 model-list">
+          <%= link_to robot_path(robot) do %>
+            <ul class="list-group-item" style="list-style: none;">
+              <li><strong>Designation: </strong><%= robot.designation %></li>
+              <li><strong>Model: </strong><%= robot.model.model_designation %></li>
+              <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div class="container well">
     <h4>Ordered Robots:</h4>
     <% @ordered_robots.each do |robot| %>
-      <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
-        <li><%= link_to "#{robot.designation}", robot_path(robot)  %></li>
-        <li>model: <%= robot.model.model_designation %></li>
-      </ul>
+      <% if robot.user_id == User.first.id %>
+        <div class="col-md-6 model-list">
+          <%= link_to robot_path(robot) do %>
+            <ul class="list-group-item" style="list-style: none;">
+              <li><strong>Designation: </strong><%= robot.designation %></li>
+              <li><strong>Model: </strong><%= robot.model.model_designation %></li>
+              <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

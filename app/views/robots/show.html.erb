@@ -4,9 +4,9 @@
     <li><h3 class="page-title">Robot Specifications</h3></li>
     <% if @robot.inventory == true %>
       <li><%= link_to 'Edit', edit_robot_path %></li>
-      <li><%= link_to 'Delete', @robot, method: :delete %></li>
+      <li><%= link_to 'Delete', @robot, method: :delete, data: { confirm: "Are you sure you want to delete this robot from your database?" } %></li>
     <% else %>
-      <li><%= link_to 'Cancel Order', @robot, method: :delete %></li>
+      <li><%= link_to 'Cancel Order', @robot, method: :delete, data: { confirm: "Are you sure you want to cancel this order?" }%></li>
     <% end %>
   </ul>
 

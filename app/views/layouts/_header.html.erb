@@ -2,19 +2,20 @@
   <div class="container">
     <% if session_logged_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <% if session_current_user.admin %>
-          <li id=title><%= link_to "Inventory", robots_path %></li>
-          <li id=title><%= link_to "New Order", manufacturers_path %></li>
+        <% if admin? %>
+        <li id=title><%= link_to "Inventory", robots_path %></li>
+        <li id=title><%= link_to "New Order", manufacturers_path %></li>
         <% end %>
         <li> <%= link_to "Profile", user_path(session_current_user) %> </li>
         <li> <%= link_to "Log out", logout_path %> </li>
       </ul>
       <ul class="nav navbar-nav navbar-left">
-      <% if session_current_user.admin %>
+      <% if admin? %>
         <li id=title><%= link_to "PSKLMRFI", robots_path %></li>
       <% else %>
         <li id=title><%= link_to "PSKLMRFI", user_path(session_current_user) %></li>
       <% end %>
+        <li><%= link_to "Welcome #{session_current_user.username}", user_path(session_current_user)%></li>
       </ul>
     <% end %>
   </div>

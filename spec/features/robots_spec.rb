@@ -4,7 +4,7 @@ include SessionHelper
 RSpec.feature "Robots", type: :feature do
   let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password', admin: true)}
   let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
-  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
+  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id, price: "$500.00")}
   let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
 
   before :each do

@@ -14,11 +14,7 @@ RSpec.feature "Manufacturer", type: :feature do
 
     visit "/manufacturers"
   
-    within('.jumbotron') do
-      expect(page).to have_content manufacturer.name
-      click_link("#{manufacturer.name}")
-    end
-
-    expect(page).to have_current_path manufacturer_path(manufacturer)
+    expect(page).to have_content manufacturer.name
+    
   end
 end

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
 
-  resources :manufacturers, only: [:index, :show], shallow: true do
-    resources :models, only: [:index], shallow: true do
+  resources :manufacturers, only: :index, shallow: true do
+    resources :models, only: :index, shallow: true do
       resources :robots, only: :create
     end
   end
@@ -18,9 +18,8 @@ Rails.application.routes.draw do
 
   resources :robots, except: [:create, :new]
 
-  get '/products', to: 'purchases#index'
-  get '/products/:id', to: 'purchases#show', as: 'product'
-  get '/products/:id/new', to: 'charges#new', as: 'new_charge'
+  get '/products', to: 'products#index'
+  get '/products/:id', to: 'products#show', as: 'product'
   post '/products/:id/charges', to: 'charges#create', as: 'charges'
 
 end

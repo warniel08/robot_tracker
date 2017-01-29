@@ -2,10 +2,6 @@ class ChargesController < ApplicationController
   include MoneyConverterHelper
   include SessionHelper
 
-  def new
-    @robot = Robot.find(params[:id])
-  end
-
   def create
     @robot = Robot.find(params[:id])
     @robot.update_attributes(user_id: session_current_user.id, inventory: false)
