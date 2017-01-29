@@ -1,11 +1,14 @@
 class ChargesController < ApplicationController
+  include MoneyConverterHelper
+  include SessionHelper
 
   def new
+    @robot = Robot.find(params[:id])
   end
 
   def create
-    # Amount in cents
-    @amount = 500
+    @robot = Robot.find(params[:id])
+    @robot.update_attributes(user_id: session_current_user.id)
 
     Stripe.api_key = ENV['TEST_SECRET_KEY']
 
@@ -16,7 +19,7 @@ class ChargesController < ApplicationController
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => convert_to_stripe_price(@robot.model.price),
       :description => 'Rails Stripe customer',
       :currency    => 'usd'
     )

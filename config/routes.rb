@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/products', to: 'purchases#index'
   get '/products/:id', to: 'purchases#show', as: 'product'
-
-  resources :charges
+  get '/products/:id/new', to: 'charges#new', as: 'new_charge'
+  post '/products/:id/charges', to: 'charges#create', as: 'charges'
 
 end

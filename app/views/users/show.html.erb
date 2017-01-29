@@ -13,7 +13,7 @@
       <ul class="row col-md-3" id="robo-roster" style="list-style: none;">
         <li><%= link_to "#{robot.designation}", robot_path(robot) %></li>
         <li>model: <%= robot.model.model_designation %></li>
-        <li>price: <%= robot.price %></li>
+        <li>price: <%= double_the_dollar(robot.model.price) %></li>
       </ul>
     <% end %>
   </div>

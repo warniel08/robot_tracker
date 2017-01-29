@@ -13,7 +13,7 @@ include SessionHelper
       if user.admin
         redirect_to robots_path
       else
-        redirect_to user_path
+        redirect_to user_path(user)
       end
 
     else
