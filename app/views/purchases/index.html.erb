@@ -3,6 +3,17 @@
   <hr>
   <h5>Click robot to purchase:</h5>
 
+  <div class="btn-group">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort By <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li>Not a Link</li>
+      <!-- <li><%= link_to "Manufacturers", controller: "manufacturers", :sort_by => "manufacturers" %></li> -->
+      <!-- <li><%= link_to "View All" %></li> -->
+    </ul>
+  </div>
+
   <div class="list-group">
     <% @robots.each do |robot| %>
       <div class="col-md-6 model-list">
