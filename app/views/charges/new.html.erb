@@ -12,7 +12,10 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
+          data-description="Model <%=@robot.model.model_designation%>"
           data-amount="<%=convert_to_stripe_price(@robot.model.price)%>"
           data-locale="auto"></script>
+          <%= submit_tag "Checkout", class: 'btn btn-primary' %>
 <% end %>
+
+

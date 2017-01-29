@@ -18,9 +18,8 @@ Rails.application.routes.draw do
 
   resources :robots, except: [:create, :new]
 
-  get '/products', to: 'purchases#index'
-  get '/products/:id', to: 'purchases#show', as: 'product'
-  get '/products/:id/new', to: 'charges#new', as: 'new_charge'
+  get '/products', to: 'products#index'
+  get '/products/:id', to: 'products#show', as: 'product'
   post '/products/:id/charges', to: 'charges#create', as: 'charges'
 
 end

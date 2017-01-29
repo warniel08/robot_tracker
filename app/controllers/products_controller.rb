@@ -1,7 +1,4 @@
-class PurchasesController < ApplicationController
-
-  include SessionHelper
-  include MoneyConverterHelper
+class ProductsController < ApplicationController
 
   def index
     @robots = Robot.where(inventory: true)
@@ -13,12 +10,6 @@ class PurchasesController < ApplicationController
     else
       @robot = nil
     end
-  end
-
-  def new
-  end
-
-  def create
   end
 
 end
