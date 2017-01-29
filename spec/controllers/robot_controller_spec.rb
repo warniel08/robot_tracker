@@ -8,7 +8,7 @@ RSpec.describe RobotsController, type: :controller do
     session_login(user)
   end
 
-  let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password')}
+  let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password', admin: true)}
   let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
   let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
   let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
