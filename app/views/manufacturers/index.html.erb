@@ -8,7 +8,7 @@
       	
 	      <div class="col-md-4 model-list">
 	         <%= link_to model_robots_path(model), method: :post do %>
-	           <ul class="list-group-item" style="list-style: none;">
+	           <ul class="list-group-item" id="model_link" style="list-style: none;">
 	             <li><strong>Model Name:</strong> <%= model.model_designation %></li>
 	             <li><strong>Height:</strong> <%= model.height %> yards</li>
 	             <li><strong>Weight:</strong> <%= model.weight %> tons</li>

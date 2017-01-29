@@ -20,20 +20,20 @@ RSpec.describe ManufacturersController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "responds with status code 200" do
-      get :show, params: { id: @manufacturer.id }
-      expect(response).to have_http_status 200
-    end
+  # describe "GET #show" do
+  #   it "responds with status code 200" do
+  #     get :show, params: { id: @manufacturer.id }
+  #     expect(response).to have_http_status 200
+  #   end
 
-    it "assigns the correct manufacturer as @manufacturer" do
-      get :show, params: {id: @manufacturer.id}
-      expect(assigns(:manufacturer)).to eq(@manufacturer)
-    end
+  #   it "assigns the correct manufacturer as @manufacturer" do
+  #     get :show, params: {id: @manufacturer.id}
+  #     expect(assigns(:manufacturer)).to eq(@manufacturer)
+  #   end
 
-    it "renders the :show template" do
-      get :show, params: { id: @manufacturer.id }
-      expect(response).to render_template(:show)
-    end
-  end
+  #   it "renders the :show template" do
+  #     get :show, params: { id: @manufacturer.id }
+  #     expect(response).to render_template(:show)
+  #   end
+  # end
 end
