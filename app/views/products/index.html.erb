@@ -1,20 +1,43 @@
 <div class="container">
   <h3>Robots For Sale</h3>
-  <hr>
-  <h5>Click robot to purchase:</h5>
 
   <div class="btn-group">
-    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Sort By <span class="caret"></span>
     </button>
     <ul class="dropdown-menu">
-      <li>Not a Link</li>
-      <!-- <li><%= link_to "Manufacturers", controller: "manufacturers", :sort_by => "manufacturers" %></li> -->
-      <!-- <li><%= link_to "View All" %></li> -->
+      <li><%= link_to "Manufacturers", products_path(sort_by_manufacturer: true) %></li>
+      <li><%= link_to "View All", products_path(sort_by_manufacturer: false) %></li>
     </ul>
   </div>
 
   <div class="list-group">
+  <hr>
+  <h5>Click robot to purchase:</h5>
+  <% if @manufacturers %>
+    <div class="container">
+      <% @manufacturers.each do |manufacturer| %>
+        <h4 class="manufacturer"><%= manufacturer.name %></h4>
+
+        <% robots = find_inventory_by_mfg(manufacturer) %>
+        <% robots.each do |robot| %>
+          <% if robot.user_id == User.first.id %>
+            <div class="col-md-6 model-list">
+              <%= link_to product_path(robot) do %>
+                <ul class="list-group-item" style="list-style: none;">
+                  <li><strong>Designation: </strong><%= robot.designation %></li>
+                  <li><strong>Model: </strong><%= robot.model.model_designation %></li>
+                  <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+                </ul>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+  <% else %>
+
     <% @robots.each do |robot| %>
       <% if robot.user_id == User.first.id %>
         <div class="col-md-6 model-list">
@@ -28,5 +51,6 @@
         </div>
       <% end %>
     <% end %>
-  </div>
+
+  <% end %>
 </div>

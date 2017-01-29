@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
-    @robots = Robot.where(inventory: true)
+    if params[:sort_by_manufacturer] == "true"
+      @manufacturers = Manufacturer.all
+    else
+      @robots = Robot.where(inventory: true)
+    end
   end
 
   def show
