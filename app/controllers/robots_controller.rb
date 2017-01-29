@@ -6,8 +6,9 @@ class RobotsController < ApplicationController
     if !session_logged_in?
       redirect_to root_path
     else
-      @inventory_robots = Robot.where("inventory = true").order("created_at DESC")
-      @ordered_robots = Robot.where("inventory = false").order("created_at DESC")
+      admin = User.find_by(admin: true)
+        @inventory_robots = admin.robots.where(inventory: true).order("created_at DESC")
+        @ordered_robots = admin.robots.where(inventory: false).order("created_at DESC")
     end
   end
 

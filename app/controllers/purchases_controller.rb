@@ -14,4 +14,11 @@ class PurchasesController < ApplicationController
       @robot = nil
     end
   end
+
+  def new
+  end
+
+  def create
+  end
+
 end
