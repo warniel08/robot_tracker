@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy'
 
   resources :manufacturers, only: :index, shallow: true do
-    resources :models, only: :index, shallow: true do
+    resources :models, only: :index do
       resources :robots, only: :create
     end
   end

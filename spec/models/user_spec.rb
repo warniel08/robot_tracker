@@ -22,5 +22,11 @@ RSpec.describe User, type: :model do
         user.valid?
       end
     end
+
+    describe "associations" do
+      it 'has many robots' do
+        should have_many(:robots)
+      end
+    end 
   end
 end
