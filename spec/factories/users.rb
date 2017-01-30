@@ -3,5 +3,6 @@ FactoryGirl.define do
     username "fred"
     email "commissioner@gmail.com"
     password "password"
+    admin "true"
   end
 end

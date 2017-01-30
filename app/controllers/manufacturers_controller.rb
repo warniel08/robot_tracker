@@ -6,8 +6,12 @@ class ManufacturersController < ApplicationController
     if !session_logged_in?
       redirect_to root_path
     else
-      @manufacturers = Manufacturer.all
-      render :index
+      if admin?
+        @manufacturers = Manufacturer.all
+        render :index
+      else
+        redirect_to session_current_user
+      end
     end
   end
 
