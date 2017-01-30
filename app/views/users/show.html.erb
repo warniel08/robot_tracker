@@ -17,6 +17,7 @@
             <li><strong>Designation: </strong><%= robot.designation %></li>
             <li><strong>Model: </strong><%= robot.model.model_designation %></li>
             <li><strong>Price: </strong><%= double_the_dollar(robot.model.price) %></li>
+            <li><strong>Shipped via rail to: </strong><%= @user.address %></li>
           </ul>
         <% end %>
       <% end %>
