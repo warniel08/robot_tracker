@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :model do
+  factory :robot do
     designation "HAL"
     inventory false
     model_id 1

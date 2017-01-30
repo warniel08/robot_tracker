@@ -4,7 +4,7 @@ include SessionHelper
 RSpec.describe ManufacturersController, type: :controller do
   before :each do
     user = create(:user)
-    @manufacturer = create(:manufacturer)
+    create(:manufacturer)
     session_login(user)
   end
 
