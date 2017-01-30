@@ -5,7 +5,15 @@ RSpec.describe Manufacturer, type: :model do
     expect(FactoryGirl.build(:manufacturer)).to be_valid
   end
 
-  it "model should require a name" do
+  it "should require a name" do
     expect(FactoryGirl.build(:manufacturer, name: "")).to_not be_valid
   end
+
+  it "has many models" do
+  	should have_many(:models)
+  end 
+
+   it "has many robots" do
+  	should have_many(:robots)
+  end 
 end
