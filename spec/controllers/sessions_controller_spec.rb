@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-  let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password')}
-  let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
-  let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
-  let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
+  # let!(:user) {User.create(username: 'test', email: 'test@gmail.com', password: 'password')}
+#   let!(:manufacturer) {Manufacturer.create!(name: "LKDVDLnjldksjldskj")}
+#   let!(:model) {Model.create!(model_designation: "RX113", manufacturer_id: manufacturer.id)}
+#   let!(:robot) {Robot.create!(designation: "HAL", inventory: false, model_id: model.id, user_id: user.id )}
 
   before :each do
-    user = create(:user)
+    user = build(:user)
     session_login(user)
   end
 
@@ -26,8 +26,11 @@ RSpec.describe SessionsController, type: :controller do
   xdescribe 'POST "#create"' do
     context "when valid params are passed" do
       it "responds with status code 302" do
-        post :create, { User: { email: "commissioner@gmail.com", password: "password" } }
-        expect(response).to have_http_status 302
+
+        post :create, params: {email: "commissioner@gmail.com", password: "password"}
+        user = create(:user).attributes
+        p user
+        expect(response).to redirect_to(robots_path)
       end
     end
   end

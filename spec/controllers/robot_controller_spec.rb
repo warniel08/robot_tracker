@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe RobotsController, type: :controller do
-  # let!(:user) {User.create!(username: 'test', email: 'test@gmail.com', password: 'password')}
-
   before :each do
     user = create(:user)
     session_login(user)

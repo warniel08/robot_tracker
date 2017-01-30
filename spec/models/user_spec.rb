@@ -27,6 +27,6 @@ RSpec.describe User, type: :model do
       it 'has many robots' do
         should have_many(:robots)
       end
-    end 
+    end
   end
 end

@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20170129224259) do
     t.integer  "model_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.integer  "user_id",     default: 0
+    t.integer  "user_id",     default: 1
   end
 
   create_table "users", force: :cascade do |t|
