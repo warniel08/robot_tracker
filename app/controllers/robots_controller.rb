@@ -6,9 +6,22 @@ class RobotsController < ApplicationController
     if !session_logged_in?
       redirect_to root_path
     else
-      admin = User.find_by(admin: true)
-        @inventory_robots = admin.robots.where(inventory: true).order("created_at DESC")
-        @ordered_robots = admin.robots.where(inventory: false).order("created_at DESC")
+      if admin?
+        admin = User.find_by(admin: true)
+        buyers = User.where(admin: false)
+          @inventory_robots = admin.robots.where(inventory: true).order("created_at DESC")
+          @ordered_robots = admin.robots.where(inventory: false).order("created_at DESC")
+          @sold_robots = []
+            buyers.each do |buyer|
+              if buyer.robots != nil
+                buyer.robots.each do |robot|
+                  @sold_robots << robot
+                end
+              end
+            end
+      else
+        redirect_to user_path
+      end
     end
   end
 
