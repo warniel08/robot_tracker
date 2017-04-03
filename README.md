@@ -21,4 +21,4 @@ Robot-Trader was completed during my enrollment at DevBootcamp's web development
 
 ## Technologies Used
 
-Primary technologies used include, Ruby, Rails, BCrypt, Stripe, Rspec, Heroku, and Bootstrap.
+Primary technologies used include Ruby, Rails, BCrypt, Stripe, Rspec, Heroku, and Bootstrap.
