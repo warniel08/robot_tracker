@@ -7,7 +7,7 @@
 
 ## What is it?
 
-Robot-Trader was completed during my enrollment at DevBootcamp's web development program. The task was to explore best-practices for handling client relations and expectations. The application was created to help a mock client track purchases and catalog the manufacturing of products while allowing users to make purchases from a product inventory.
+Robot-Trader was a team project completed during my time at Dev Bootcamp. The task was to explore best-practices for handling client relations and expectations while operating under a strict timetable. The application was created to help a mock client track purchases and catalog the manufacturing of products while allowing users to make purchases from the product inventory.
 
 
 ## Home Catalog Screen
@@ -21,4 +21,4 @@ Robot-Trader was completed during my enrollment at DevBootcamp's web development
 
 ## Technologies Used
 
-Primary technologies used include Ruby, Rails, BCrypt, Stripe, Rspec, Heroku, and Bootstrap.
+Primary technologies used include PostGres, Ruby, Rails, BCrypt, Stripe, Rspec, CircleCI, Heroku, and Bootstrap.
